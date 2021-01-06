@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示</title>
+    <script src="../static/js/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#b1').click(function () {
+                a = window.confirm("确定要删除吗？")
+                if(a) {
+                    return true
+                }
+                else {
+                    return false;
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+<form action="" method="post">
+    <table border="1px" align="center">
+    <tr>
+        <td><input type="text" name="n1"></td>
+        <td><button>查询</button>
+        <a href="{% url "zeng" %}">新增</a>
+        </td>
+    </tr>
+        <tr bgcolor="#8b0000">
+            <td><font color="white">新闻编号</font></td>
+            <td><font color="white">新闻标题</font></td>
+            <td><font color="white">新闻作者</font></td>
+            <td><font color="white">新闻内容</font></td>
+            <td><font color="white">发布时间</font></td>
+            <td><font color="white">新闻状态</font></td>
+            <td><font color="white">新闻类型</font></td>
+            <td><font color="white">编辑</font></td>
+        </tr>
+            {% for i in i_all %}
+                <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.nTitle }}</td>
+                <td>{{ i.nAuthor }}</td>
+                <td>{{ i.nContent }}</td>
+                <td>{{ i.nPubDateTime|date:'Y:m:d H:i:s' }}</td>
+                <td>
+                    {% if i.Nstatus == 0 %}{{ '已审核' }}{% endif %}
+                    {% if i.Nstatus == 1 %}{{ '未审核' }}{% endif %}
+                </td>
+                <td>{{ i.tid.tName }}</td>
+                <td><a href="{% url 'delete' i.id %}" id="b1">删除</a></td>
+                </tr>
+            {% endfor %}
+    </table>
+</form>
+</body>
+</html>

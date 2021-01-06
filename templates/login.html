@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="../static/js/jquery.js"></script>
+       <script>
+        $(function(){
+            $('#d1').click(function(){
+                var e = $('#e1').val()
+                var p = $('#p1').val()
+                if(e == "" || p == ""){
+                    $('#msg').html("不能为空");
+                    return false;
+                    }
+                if(e.length < 6 ){
+                    $('#msg').html("账号不能小于6个字符");
+                    return false;
+                    }
+                $("#msg").html("");
+                return true;
+            })
+        })
+    </script>
+</head>
+<body>
+<h1 align="center" >欢迎登录</h1>
+<form action="" method="post">
+    <table border="1px" align="center">
+        <tr>
+            <td>账号：</td>
+            <td><input type="text" name="username" id = "e1">
+                <span id="msg"></span></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password" id = "p1"></td>
+        </tr>
+        <tr>
+            <td><button id = "d1">登录</button></td>
+            <td><a href="{% url 'zhuce' %}">注册</a> </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

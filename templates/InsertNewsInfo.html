@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加</title>
+</head>
+<body>
+<form method="post" action="">
+    <table align="center">
+        <h1 align="center">添加新闻信息</h1>
+        <tr>
+            <td>新闻标题</td>
+            <td><input type="text" name="nTitle"></td>
+        </tr>
+        <tr>
+            <td>新闻作者</td>
+            <td><input type="text" name="tAuthor"></td>
+        </tr>
+        <tr>
+            <td>新闻类型</td>
+            <td>
+                <select name="tName">
+                    <option  value="体育">体育</option>
+                    <option  value="娱乐">娱乐</option>
+                    <option  value="科技">科技</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>新闻状态</td>
+            <td>
+                <input type="radio" value="1" name="Nstatus" checked>未审核
+                <input type="radio" value="0" name="Nstatus">已审核
+            </td>
+        </tr>
+        <tr>
+            <td>新闻内容</td>
+            <td><textarea name="nContent" rows="5" maxlength="100"></textarea> </td>
+        </tr>
+        <td><button>添加新闻信息</button></td>
+    </table>
+</form>
+</body>
+</html>
